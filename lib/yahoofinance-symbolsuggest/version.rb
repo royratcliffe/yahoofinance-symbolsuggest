@@ -1,5 +1,5 @@
-module Yahoofinance
-  module Symbolsuggest
+module YahooFinance
+  module SymbolSuggest
     VERSION = "0.0.1"
   end
 end

@@ -4,7 +4,7 @@ require "yahoofinance-symbolsuggest/version"
 
 Gem::Specification.new do |s|
   s.name        = "yahoofinance-symbolsuggest"
-  s.version     = Yahoofinance::Symbolsuggest::VERSION
+  s.version     = YahooFinance::SymbolSuggest::VERSION
   s.authors     = ["Roy Ratcliffe"]
   s.email       = ["roy@pioneeringsoftware.co.uk"]
   s.homepage    = ""

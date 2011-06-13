@@ -1,7 +1,7 @@
 require "yahoofinance-symbolsuggest/version"
 
-module Yahoofinance
-  module Symbolsuggest
-    # Your code goes here...
+module YahooFinance
+  module SymbolSuggest
+    
   end
 end
