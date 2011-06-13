@@ -33,11 +33,14 @@ module YahooFinance
     # [type]      type of stock, e.g. S for “Equity”
     # [typeDisp]  display type for stock
     #
-    # == Implementation Notes
+    # == Design Notes
     #
-    # The implementation uses a module-scoped method to wrap the GET request
-    # sent to Yahoo Finance, though this may need refactoring at some point in
-    # the future.
+    # The design uses a module-scoped method to wrap the GET request sent to
+    # Yahoo Finance, though this may need refactoring at some point in the
+    # future. The +query+ method handles the query synchronously, meaning that
+    # the caller waits for the response. Future implementations may abstract
+    # away the response handling as well as the request handling, in order to
+    # support other caller-callee paradigms, including asynchronous ones.
     def SymbolSuggest.query(symbol)
       jsonp = Net::HTTP.get(URI.parse("http://d.yimg.com/aq/autoc?query=#{symbol}&callback=#{Callback}"))
       # The answer is a piece of JSONP: JSON with padding, where the padding is
