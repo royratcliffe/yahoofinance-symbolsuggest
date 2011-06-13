@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Roy Ratcliffe"]
   s.email       = ["roy@pioneeringsoftware.co.uk"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Sends a Symbol Suggest request to Yahoo Finance web services}
+  s.description = %q{Wraps a very straightforward piece of functionality: sending a HTTP GET request to Yahoo Finance web service, answering a prioritised array of stock symbol suggestions.}
 
   s.rubyforge_project = "yahoofinance-symbolsuggest"
   s.add_runtime_dependency 'json'
