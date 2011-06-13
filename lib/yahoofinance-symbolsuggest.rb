@@ -1,8 +1,9 @@
 require "yahoofinance-symbolsuggest/version"
 
-# Both net/http and uri belong to the Ruby standard library.
+# Both net/http, uri and cgi belong to the Ruby standard library.
 require 'net/http'
 require 'uri'
+require 'cgi'
 
 # http://flori.github.com/json
 require 'json'
@@ -42,7 +43,9 @@ module YahooFinance
     # away the response handling as well as the request handling, in order to
     # support other caller-callee paradigms, including asynchronous ones.
     def SymbolSuggest.query(symbol)
-      jsonp = Net::HTTP.get(URI.parse("http://d.yimg.com/aq/autoc?query=#{symbol}&callback=#{Callback}"))
+      # Escape the query string using CGI rather than URI because URI fails to
+      # encode ampersands.
+      jsonp = Net::HTTP.get(URI.parse("http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&callback=#{Callback}"))
       # The answer is a piece of JSONP: JSON with padding, where the padding is
       # the callback function. The following padding parser utilises Ruby 1.9
       # String methods. Is that a good thing? It makes the implementation
