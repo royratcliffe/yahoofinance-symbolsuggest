@@ -26,7 +26,7 @@ module YahooFinance
     # Answers an URL given a ticker symbol or company name; Yahoo Finance
     # matches both simultaneously. Send an HTTP GET request to this URL and
     # Yahoo will reply with a padded JSON response containing some useful
-    # suggestions for matching companies. Use results_from_jsonp to decode the
+    # suggestions for matching companies. Use suggestions_from_jsonp to decode the
     # response.
     def self.url_from_symbol(symbol)
       # Escape the query string using CGI rather than URI because URI fails to
@@ -35,7 +35,7 @@ module YahooFinance
     end
     
     # Answers an array of hashes representing symbol suggestions.
-    def self.results_from_jsonp(jsonp)
+    def self.suggestions_from_jsonp(jsonp)
       # The answer from the GET request to Yahoo Finance's symbol-suggest
       # service is a piece of JSONP: JSON with padding, where the padding is the
       # callback function. The following padding parser utilises Ruby 1.9 String
@@ -71,11 +71,11 @@ module YahooFinance
     # support other caller-callee paradigms, including asynchronous ones.
     #
     # To facilitate alternative approaches, including asynchronous loading, the
-    # design refactors URL-from-symbol and results-from-JSONP behaviour as
+    # design refactors URL-from-symbol and suggestions-from-JSONP behaviour as
     # separate module methods. Hence +query+ is just a convenience method that
     # sends a synchronous HTTP GET request using the Ruby standard library.
     def self.query(symbol)
-      results_from_jsonp(Net::HTTP.get(url_from_symbol(symbol)))
+      suggestions_from_jsonp(Net::HTTP.get(url_from_symbol(symbol)))
     end
   end
 end
