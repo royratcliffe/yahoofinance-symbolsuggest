@@ -23,6 +23,33 @@ module YahooFinance
     # service to accept the request. It must match this string.
     Callback = "YAHOO.Finance.SymbolSuggest.ssCallback"
     
+    # Answers an URL given a ticker symbol or company name; Yahoo Finance
+    # matches both simultaneously. Send an HTTP GET request to this URL and
+    # Yahoo will reply with a padded JSON response containing some useful
+    # suggestions for matching companies. Use results_from_jsonp to decode the
+    # response.
+    def self.url_from_symbol(symbol)
+      # Escape the query string using CGI rather than URI because URI fails to
+      # encode ampersands.
+      URI.parse("http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&callback=#{Callback}")
+    end
+    
+    # Answers an array of hashes representing symbol suggestions.
+    def self.results_from_jsonp(jsonp)
+      # The answer from the GET request to Yahoo Finance's symbol-suggest
+      # service is a piece of JSONP: JSON with padding, where the padding is the
+      # callback function. The following padding parser utilises Ruby 1.9 String
+      # methods. Is that a good thing? It makes the implementation dependent on
+      # 1.9.
+      prefix = Callback + '('
+      suffix = ')'
+      if jsonp.start_with?(prefix) && jsonp.end_with?(suffix)
+        JSON.parse(jsonp[prefix.length, jsonp.length - prefix.length - suffix.length])["ResultSet"]["Result"]
+      else
+        nil
+      end
+    end
+    
     # Queries the given ticker symbol or company name against Yahoo Finance's
     # symbol suggest web service. Answers an array of prioritised suggestions in
     # the form of hashes where each hash has the following keys.
@@ -42,21 +69,13 @@ module YahooFinance
     # the caller waits for the response. Future implementations may abstract
     # away the response handling as well as the request handling, in order to
     # support other caller-callee paradigms, including asynchronous ones.
-    def SymbolSuggest.query(symbol)
-      # Escape the query string using CGI rather than URI because URI fails to
-      # encode ampersands.
-      jsonp = Net::HTTP.get(URI.parse("http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&callback=#{Callback}"))
-      # The answer is a piece of JSONP: JSON with padding, where the padding is
-      # the callback function. The following padding parser utilises Ruby 1.9
-      # String methods. Is that a good thing? It makes the implementation
-      # dependent on 1.9.
-      prefix = Callback + '('
-      suffix = ')'
-      if jsonp.start_with?(prefix) && jsonp.end_with?(suffix)
-        JSON.parse(jsonp[prefix.length, jsonp.length - prefix.length - suffix.length])["ResultSet"]["Result"]
-      else
-        nil
-      end
+    #
+    # To facilitate alternative approaches, including asynchronous loading, the
+    # design refactors URL-from-symbol and results-from-JSONP behaviour as
+    # separate module methods. Hence +query+ is just a convenience method that
+    # sends a synchronous HTTP GET request using the Ruby standard library.
+    def self.query(symbol)
+      results_from_jsonp(Net::HTTP.get(url_from_symbol(symbol)))
     end
   end
 end
