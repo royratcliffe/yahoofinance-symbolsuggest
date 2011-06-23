@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Module: YahooFinance::SymbolSuggest::YahooSymbolSuggest</title>
+
+	<link rel="stylesheet" href="../../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="module">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../../index.html">Home</a>
+          <a href="../../index.html#classes">Classes</a>
+          <a href="../../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../../lib/yahoofinance-symbolsuggest_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/yahoofinance-symbolsuggest.rb">lib/yahoofinance-symbolsuggest.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-query">::query</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../../Gemfile.html">Gemfile</a></li>
+				
+					<li class="file"><a href="../../Rakefile.html">Rakefile</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../YahooFinance.html">YahooFinance</a></li>
+				
+					<li><a href="../../YahooFinance/SymbolSuggest.html">YahooFinance::SymbolSuggest</a></li>
+				
+					<li><a href="../../YahooFinance/SymbolSuggest/YahooSymbolSuggest.html">YahooFinance::SymbolSuggest::YahooSymbolSuggest</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="module">YahooFinance::SymbolSuggest::YahooSymbolSuggest</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="query-method" class="method-detail ">
+				<a name="method-c-query"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">query</span><span
+						class="method-args">(symbol)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Queries the given ticker symbol or company name against Yahoo
+Finance&#8217;s symbol suggest web service. Answers an array of prioritised
+suggestions in the form of hashes where each hash has the following keys.
+</p>
+<dl>
+<dt>exch</dt><dd><p>
+symbol of the exchange, e.g. NYQ for NYSE
+</p>
+</dd>
+<dt>exchDisp</dt><dd><p>
+display name for the exchange, e.g. “NYSE”
+</p>
+</dd>
+<dt>name</dt><dd><p>
+name of the company
+</p>
+</dd>
+<dt>symbol</dt><dd><p>
+ticker symbol
+</p>
+</dd>
+<dt>type</dt><dd><p>
+type of stock, e.g. S for “Equity”
+</p>
+</dd>
+<dt>typeDisp</dt><dd><p>
+display type for stock
+</p>
+</dd>
+</dl>
+<h2>Implementation Notes</h2>
+<p>
+The implementation uses this module-scoped method to wrap the GET request
+sent to Yahoo Finance, though this may need refactoring at some point in
+the future.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="query-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/yahoofinance-symbolsuggest.rb, line 41</span>
+41:     <span class="ruby-keyword kw">def</span> <span class="ruby-constant">YahooSymbolSuggest</span>.<span class="ruby-identifier">query</span>(<span class="ruby-identifier">symbol</span>)
+42:       <span class="ruby-identifier">jsonp</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get</span>(<span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;http://d.yimg.com/aq/autoc?query=#{symbol}&amp;callback=#{Callback}&quot;</span>))
+43:       <span class="ruby-comment cmt"># The answer is a piece of JSONP: JSON with padding, where the padding is</span>
+44:       <span class="ruby-comment cmt"># the callback function. The following padding parser utilises Ruby 1.9</span>
+45:       <span class="ruby-comment cmt"># String methods. Is that a good thing? It makes the implementation</span>
+46:       <span class="ruby-comment cmt"># dependent on 1.9.</span>
+47:       <span class="ruby-identifier">prefix</span> = <span class="ruby-constant">Callback</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'('</span>
+48:       <span class="ruby-identifier">suffix</span> = <span class="ruby-value str">')'</span>
+49:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">jsonp</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">prefix</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">jsonp</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-identifier">suffix</span>)
+50:         <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">jsonp</span>[<span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">jsonp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">length</span>])[<span class="ruby-value str">&quot;ResultSet&quot;</span>][<span class="ruby-value str">&quot;Result&quot;</span>]
+51:       <span class="ruby-keyword kw">else</span>
+52:         <span class="ruby-keyword kw">nil</span>
+53:       <span class="ruby-keyword kw">end</span>
+54:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
