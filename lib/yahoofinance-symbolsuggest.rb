@@ -34,8 +34,13 @@ module YahooFinance
       URI.parse("http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&callback=#{Callback}")
     end
     
-    # Answers an array of hashes representing symbol suggestions.
-    def self.suggestions_from_jsonp(jsonp)
+    # Parses JSONP and extracts the encoded set of results. Answers a hash
+    # comprising two keys: +Query+ and +Result+. The +Query+ value is the
+    # original query string. The +Result+ value is an array of hashes, the
+    # results proper. Each hash has keys describing the symbol suggestion,
+    # including +symbol+ for the ticker symbol, +name+ for the name of the
+    # company, etc. See query method.
+    def self.results_from_jsonp(jsonp)
       # The answer from the GET request to Yahoo Finance's symbol-suggest
       # service is a piece of JSONP: JSON with padding, where the padding is the
       # callback function. The following padding parser utilises Ruby 1.9 String
@@ -44,10 +49,23 @@ module YahooFinance
       prefix = Callback + '('
       suffix = ')'
       if jsonp.start_with?(prefix) && jsonp.end_with?(suffix)
-        JSON.parse(jsonp[prefix.length, jsonp.length - prefix.length - suffix.length])["ResultSet"]["Result"]
+        JSON.parse(jsonp[prefix.length, jsonp.length - prefix.length - suffix.length])["ResultSet"]
       else
         nil
       end
+    end
+    
+    # Answers an array of hashes representing symbol suggestions given a set of
+    # results; in other words, discards the +Query+ key. The results argument
+    # typically comes from the results_from_jsonp method.
+    def self.suggestions_from_results(results)
+      results["Result"]
+    end
+    
+    # Answers an array of symbol suggestions given some JSONP sent by the Yahoo
+    # Finance symbol-suggestion service.
+    def self.suggestions_from_jsonp(jsonp)
+      suggestions_from_results(results_from_jsonp(jsonp))
     end
     
     # Queries the given ticker symbol or company name against Yahoo Finance's
