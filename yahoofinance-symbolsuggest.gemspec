@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = YahooFinance::SymbolSuggest::VERSION
   s.authors     = ['Roy Ratcliffe']
   s.email       = ['roy@pioneeringsoftware.co.uk']
-  s.homepage    = ''
+  s.homepage    = 'https://github.com/royratcliffe/yahoofinance-symbolsuggest'
   s.summary     = %q{Sends a Symbol Suggest request to Yahoo Finance web services}
   s.description = %q{Wraps a very straightforward piece of functionality: sending a HTTP GET request to Yahoo Finance web service, answering a prioritised array of stock symbol suggestions.}
 
