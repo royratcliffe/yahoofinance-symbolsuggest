@@ -1,146 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: YahooFinance::SymbolSuggest
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
 
-  <title>Module: YahooFinance::SymbolSuggest</title>
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
-  <script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
 
-</head>
-<body id="top" class="module">
 
-  <div id="metadata">
-    <div id="home-metadata">
-      <div id="home-section" class="section">
-        <h3 class="section-header">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#classes">Classes</a>
-          <a href="../index.html#methods">Methods</a>
-        </h3>
-      </div>
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../YahooFinance.html" title="YahooFinance (module)">YahooFinance</a></span></span>
+     &raquo; 
+    <span class="title">SymbolSuggest</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
     </div>
 
-    <div id="file-metadata">
-      <div id="file-list-section" class="section">
-        <h3 class="section-header">In Files</h3>
-        <div class="section-body">
-          <ul>
-          
-            <li><a href="../lib/yahoofinance-symbolsuggest/version_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/yahoofinance-symbolsuggest/version.rb">lib/yahoofinance-symbolsuggest/version.rb</a></li>
-          
-            <li><a href="../lib/yahoofinance-symbolsuggest_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/yahoofinance-symbolsuggest.rb">lib/yahoofinance-symbolsuggest.rb</a></li>
-          
-          </ul>
-        </div>
-      </div>
+    <iframe id="search_frame"></iframe>
 
-      
-    </div>
+    <div id="content"><h1>Module: YahooFinance::SymbolSuggest
+  
+  
+  
+</h1>
 
-    <div id="class-metadata">
-      
-
-      
-
-      
-
-      
-      <!-- Method Quickref -->
-      <div id="method-list-section" class="section">
-        <h3 class="section-header">Methods</h3>
-        <ul class="link-list">
-          
-          <li><a href="#method-c-query">::query</a></li>
-          
-          <li><a href="#method-c-results_from_jsonp">::results_from_jsonp</a></li>
-          
-          <li><a href="#method-c-suggestions_from_jsonp">::suggestions_from_jsonp</a></li>
-          
-          <li><a href="#method-c-suggestions_from_results">::suggestions_from_results</a></li>
-          
-          <li><a href="#method-c-url_from_symbol">::url_from_symbol</a></li>
-          
-        </ul>
-      </div>
-      
-
-      
-    </div>
-
-    <div id="project-metadata">
-      
-      
-      <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Files</h3>
-        <ul>
-        
-          <li class="file"><a href="../Gemfile.html">Gemfile</a></li>
-        
-          <li class="file"><a href="../Rakefile.html">Rakefile</a></li>
-        
-        </ul>
-      </div>
-      
-
-      <div id="classindex-section" class="section project-section">
-        <h3 class="section-header">Class/Module Index
-          <span class="search-toggle"><img src="../images/find.png"
-            height="16" width="16" alt="[+]"
-            title="show/hide quicksearch" /></span></h3>
-        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-        <fieldset>
-          <legend>Quicksearch</legend>
-          <input type="text" name="quicksearch" value=""
-            class="quicksearch-field" />
-        </fieldset>
-        </form>
-
-        <ul class="link-list">
-        
-          <li><a href="../YahooFinance.html">YahooFinance</a></li>
-        
-          <li><a href="../YahooFinance/SymbolSuggest.html">YahooFinance::SymbolSuggest</a></li>
-        
-        </ul>
-        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
-      </div>
-
-      
-    </div>
-  </div>
-
-  <div id="documentation">
-    <h1 class="module">YahooFinance::SymbolSuggest</h1>
-
-    <div id="description" class="description">
-      
-    </div><!-- description -->
-
+<dl class="box">
+  
+  
     
-    <div id="5Buntitled-5D" class="documentation-section">
-      
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/yahoofinance-symbolsuggest.rb<span class="defines">,<br />
+  lib/yahoofinance-symbolsuggest/version.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
 
-      
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
       
-      <!-- Constants -->
-      <div id="constants-list" class="section">
-        <h3 class="section-header">Constants</h3>
-        <dl>
-        
-          <dt><a name="Callback">Callback</a></dt>
-          
-          <dd class="description"><p>This constant is important for two reasons:</p>
+        <dt id="CALLBACK-constant" class="">CALLBACK =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>This constant is important for two reasons:</p>
 <ol><li>
 <p>it appears in the URL query;</p>
 </li><li>
@@ -148,267 +103,478 @@
 </li></ol>
 
 <p>The URL query string is everything after the question mark. The
-undocumented non-public interface to Yahoo’s symbol-suggest auto-completion
-services requires two query fields: query and callback, where “query”
-specifies the symbol on which to base the suggestions, and where “callback”
-specifies the JavaScript callback function. But note, this callback
-function cannot have just any name for the Yahoo service to accept the
-request. It must match this string.</p></dd>
-          
-        
-        </dl>
-      </div>
+undocumented non-public interface to Yahoo&#39;s symbol-suggest
+auto-completion services requires two query fields: query and callback,
+where “query” specifies the symbol on which to base the suggestions, and
+where “callback” specifies the JavaScript callback function. But note, this
+callback function cannot have just any name for the Yahoo service to accept
+the request. It must match this string.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>YAHOO.Finance.SymbolSuggest.ssCallback</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>:nodoc:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.1.0</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query-class_method" title="query (class method)">+ (Object) <strong>query</strong>(symbol) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Queries the given ticker symbol or company name against Yahoo Finance&#39;s
+symbol suggest web service.</p>
+</div></span>
+  
+</li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#results_from_jsonp-class_method" title="results_from_jsonp (class method)">+ (Object) <strong>results_from_jsonp</strong>(jsonp) </a>
+    
 
-      <!-- Methods -->
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Parses JSONP and extracts the encoded set of results.</p>
+</div></span>
+  
+</li>
+
       
-      <div id="public-class-method-details" class="method-section section">
-        <h3 class="section-header">Public Class Methods</h3>
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suggestions_from_jsonp-class_method" title="suggestions_from_jsonp (class method)">+ (Object) <strong>suggestions_from_jsonp</strong>(jsonp) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Answers an array of symbol suggestions given some JSONP sent by the Yahoo
+Finance symbol-suggestion service.</p>
+</div></span>
+  
+</li>
 
       
-        <div id="query-method" class="method-detail ">
-          <a name="method-c-query"></a>
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#suggestions_from_results-class_method" title="suggestions_from_results (class method)">+ (Object) <strong>suggestions_from_results</strong>(results) </a>
+    
 
-          
-          <div class="method-heading">
-            <span class="method-name">query</span><span
-              class="method-args">(symbol)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
 
-          <div class="method-description">
-            
-            <p>Queries the given ticker symbol or company name against Yahoo Finance’s
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Answers an array of hashes representing symbol suggestions given a set of
+results; in other words, discards the <code>Query</code> key.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#url_from_symbol-class_method" title="url_from_symbol (class method)">+ (Object) <strong>url_from_symbol</strong>(symbol) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Answers an URL given a ticker symbol or company name; Yahoo Finance matches
+both simultaneously.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="query-class_method">
+  
+    + (<tt>Object</tt>) <strong>query</strong>(symbol) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Queries the given ticker symbol or company name against Yahoo Finance&#39;s
 symbol suggest web service. Answers an array of prioritised suggestions in
 the form of hashes where each hash has the following keys.</p>
-<dl><dt>exch</dt>
+<dl class="rdoc-list label-list"><dt>exch
 <dd>
 <p>symbol of the exchange, e.g. NYQ for NYSE</p>
-</dd><dt>exchDisp</dt>
+</dd><dt>exchDisp
 <dd>
 <p>display name for the exchange, e.g. “NYSE”</p>
-</dd><dt>name</dt>
+</dd><dt>name
 <dd>
 <p>name of the company</p>
-</dd><dt>symbol</dt>
+</dd><dt>symbol
 <dd>
 <p>ticker symbol</p>
-</dd><dt>type</dt>
+</dd><dt>type
 <dd>
 <p>type of stock, e.g. S for “Equity”</p>
-</dd><dt>typeDisp</dt>
+</dd><dt>typeDisp
 <dd>
 <p>display type for stock</p>
 </dd></dl>
 
-<h2>Design Notes</h2>
+<h2 id="label-Design+Notes">Design Notes</h2>
 
 <p>The design uses a module-scoped method to wrap the GET request sent to
 Yahoo Finance, though this may need refactoring at some point in the
-future. The <tt>query</tt> method handles the query synchronously, meaning
-that the caller waits for the response. Future implementations may abstract
-away the response handling as well as the request handling, in order to
-support other caller-callee paradigms, including asynchronous ones.</p>
+future. The <code>query</code> method handles the query synchronously,
+meaning that the caller waits for the response. Future implementations may
+abstract away the response handling as well as the request handling, in
+order to support other caller-callee paradigms, including asynchronous
+ones.</p>
 
 <p>To facilitate alternative approaches, including asynchronous loading, the
 design refactors URL-from-symbol and suggestions-from-JSONP behaviour as
-separate module methods. Hence <tt>query</tt> is just a convenience method
-that sends a synchronous HTTP GET request using the Ruby standard library.</p>
-            
+separate module methods. Hence <code>query</code> is just a convenience
+method that sends a synchronous HTTP GET request using the Ruby standard
+library.</p>
 
-            
-            <div class="method-source-code" id="query-source">
-<pre>
-<span class="ruby-comment"># File lib/yahoofinance-symbolsuggest.rb, line 95</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">query</span>(<span class="ruby-identifier">symbol</span>)
-  <span class="ruby-identifier">suggestions_from_jsonp</span>(<span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">url_from_symbol</span>(<span class="ruby-identifier">symbol</span>)))
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- query-source -->
-            
-          </div>
 
-          
-
-          
-        </div><!-- query-method -->
-
-      
-        <div id="results_from_jsonp-method" class="method-detail ">
-          <a name="method-c-results_from_jsonp"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">results_from_jsonp</span><span
-              class="method-args">(jsonp)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>Parses JSONP and extracts the encoded set of results. Answers a hash
-comprising two keys: <tt>Query</tt> and <tt>Result</tt>. The <tt>Query</tt>
-value is the original query string. The <tt>Result</tt> value is an array
-of hashes, the results proper. Each hash has keys describing the symbol
-suggestion, including <tt>symbol</tt> for the ticker symbol, <tt>name</tt>
-for the name of the company, etc. See query method.</p>
-            
-
-            
-            <div class="method-source-code" id="results_from_jsonp-source">
-<pre>
-<span class="ruby-comment"># File lib/yahoofinance-symbolsuggest.rb, line 43</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">results_from_jsonp</span>(<span class="ruby-identifier">jsonp</span>)
-  <span class="ruby-comment"># The answer from the GET request to Yahoo Finance's symbol-suggest</span>
-  <span class="ruby-comment"># service is a piece of JSONP: JSON with padding, where the padding is the</span>
-  <span class="ruby-comment"># callback function. The following padding parser utilises Ruby 1.9 String</span>
-  <span class="ruby-comment"># methods. Is that a good thing? It makes the implementation dependent on</span>
-  <span class="ruby-comment"># 1.9.</span>
-  <span class="ruby-identifier">prefix</span> = <span class="ruby-constant">Callback</span> <span class="ruby-operator">+</span> <span class="ruby-string">'('</span>
-  <span class="ruby-identifier">suffix</span> = <span class="ruby-string">')'</span>
-  <span class="ruby-keyword">if</span> <span class="ruby-identifier">jsonp</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">prefix</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">jsonp</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-identifier">suffix</span>)
-    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">jsonp</span>[<span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">jsonp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">length</span>])[<span class="ruby-string">&quot;ResultSet&quot;</span>]
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-keyword">nil</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- results_from_jsonp-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- results_from_jsonp-method -->
-
-      
-        <div id="suggestions_from_jsonp-method" class="method-detail ">
-          <a name="method-c-suggestions_from_jsonp"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">suggestions_from_jsonp</span><span
-              class="method-args">(jsonp)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>Answers an array of symbol suggestions given some JSONP sent by the Yahoo
-Finance symbol-suggestion service.</p>
-            
-
-            
-            <div class="method-source-code" id="suggestions_from_jsonp-source">
-<pre>
-<span class="ruby-comment"># File lib/yahoofinance-symbolsuggest.rb, line 67</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">suggestions_from_jsonp</span>(<span class="ruby-identifier">jsonp</span>)
-  <span class="ruby-identifier">suggestions_from_results</span>(<span class="ruby-identifier">results_from_jsonp</span>(<span class="ruby-identifier">jsonp</span>))
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- suggestions_from_jsonp-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- suggestions_from_jsonp-method -->
-
-      
-        <div id="suggestions_from_results-method" class="method-detail ">
-          <a name="method-c-suggestions_from_results"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">suggestions_from_results</span><span
-              class="method-args">(results)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>Answers an array of hashes representing symbol suggestions given a set of
-results; in other words, discards the <tt>Query</tt> key. The results
-argument typically comes from the <a
-href="SymbolSuggest.html#method-c-results_from_jsonp">results_from_jsonp</a>
-method.</p>
-            
-
-            
-            <div class="method-source-code" id="suggestions_from_results-source">
-<pre>
-<span class="ruby-comment"># File lib/yahoofinance-symbolsuggest.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">suggestions_from_results</span>(<span class="ruby-identifier">results</span>)
-  <span class="ruby-identifier">results</span>[<span class="ruby-string">&quot;Result&quot;</span>]
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- suggestions_from_results-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- suggestions_from_results-method -->
-
-      
-        <div id="url_from_symbol-method" class="method-detail ">
-          <a name="method-c-url_from_symbol"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">url_from_symbol</span><span
-              class="method-args">(symbol)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>Answers an URL given a ticker symbol or company name; Yahoo Finance matches
-both simultaneously. Send an HTTP GET request to this URL and Yahoo will
-reply with a padded JSON response containing some useful suggestions for
-matching companies. Use <a
-href="SymbolSuggest.html#method-c-suggestions_from_jsonp">suggestions_from_jsonp</a>
-to decode the response.</p>
-            
-
-            
-            <div class="method-source-code" id="url_from_symbol-source">
-<pre>
-<span class="ruby-comment"># File lib/yahoofinance-symbolsuggest.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">url_from_symbol</span>(<span class="ruby-identifier">symbol</span>)
-  <span class="ruby-comment"># Escape the query string using CGI rather than URI because URI fails to</span>
-  <span class="ruby-comment"># encode ampersands.</span>
-  <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&amp;callback=#{Callback}&quot;</span>)
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- url_from_symbol-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- url_from_symbol-method -->
-
-      
-      </div><!-- public-class-method-details -->
-    
-    </div><!-- 5Buntitled-5D -->
+  </div>
+</div>
+<div class="tags">
   
 
-  </div><!-- documentation -->
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
 
-  <div id="validator-badges">
-    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-      Rdoc Generator</a> 2</small>.</p>
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yahoofinance-symbolsuggest.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_query'>query</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_suggestions_from_jsonp'>suggestions_from_jsonp</span><span class='lparen'>(</span><span class='const'>Net</span><span class='op'>::</span><span class='const'>HTTP</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url_from_symbol'>url_from_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="results_from_jsonp-class_method">
+  
+    + (<tt>Object</tt>) <strong>results_from_jsonp</strong>(jsonp) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Parses JSONP and extracts the encoded set of results. Answers a hash
+comprising two keys: <code>Query</code> and <code>Result</code>. The
+<code>Query</code> value is the original query string. The
+<code>Result</code> value is an array of hashes, the results proper. Each
+hash has keys describing the symbol suggestion, including
+<code>symbol</code> for the ticker symbol, <code>name</code> for the name
+of the company, etc. See query method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yahoofinance-symbolsuggest.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_results_from_jsonp'>results_from_jsonp</span><span class='lparen'>(</span><span class='id identifier rubyid_jsonp'>jsonp</span><span class='rparen'>)</span>
+  <span class='comment'># The answer from the GET request to Yahoo Finance&#39;s symbol-suggest
+</span>  <span class='comment'># service is a piece of JSONP: JSON with padding, where the padding is the
+</span>  <span class='comment'># callback function. The following padding parser utilises Ruby 1.9 String
+</span>  <span class='comment'># methods. Is that a good thing? It makes the implementation dependent on
+</span>  <span class='comment'># 1.9.
+</span>  <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='const'>CALLBACK</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>(</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_suffix'>suffix</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>)</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_jsonp'>jsonp</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='id identifier rubyid_prefix'>prefix</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_jsonp'>jsonp</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='id identifier rubyid_suffix'>suffix</span><span class='rparen'>)</span>
+    <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_jsonp'>jsonp</span><span class='lbracket'>[</span><span class='id identifier rubyid_prefix'>prefix</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span> <span class='id identifier rubyid_jsonp'>jsonp</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='id identifier rubyid_prefix'>prefix</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>-</span> <span class='id identifier rubyid_suffix'>suffix</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ResultSet</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='kw'>nil</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="suggestions_from_jsonp-class_method">
+  
+    + (<tt>Object</tt>) <strong>suggestions_from_jsonp</strong>(jsonp) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Answers an array of symbol suggestions given some JSONP sent by the Yahoo
+Finance symbol-suggestion service.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yahoofinance-symbolsuggest.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suggestions_from_jsonp'>suggestions_from_jsonp</span><span class='lparen'>(</span><span class='id identifier rubyid_jsonp'>jsonp</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_suggestions_from_results'>suggestions_from_results</span><span class='lparen'>(</span><span class='id identifier rubyid_results_from_jsonp'>results_from_jsonp</span><span class='lparen'>(</span><span class='id identifier rubyid_jsonp'>jsonp</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="suggestions_from_results-class_method">
+  
+    + (<tt>Object</tt>) <strong>suggestions_from_results</strong>(results) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Answers an array of hashes representing symbol suggestions given a set of
+results; in other words, discards the <code>Query</code> key. The results
+argument typically comes from the results_from_jsonp method.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yahoofinance-symbolsuggest.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_suggestions_from_results'>suggestions_from_results</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_results'>results</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Result</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="url_from_symbol-class_method">
+  
+    + (<tt>Object</tt>) <strong>url_from_symbol</strong>(symbol) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Answers an URL given a ticker symbol or company name; Yahoo Finance matches
+both simultaneously. Send an HTTP GET request to this URL and Yahoo will
+reply with a padded JSON response containing some useful suggestions for
+matching companies. Use suggestions_from_jsonp to decode the response.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/yahoofinance-symbolsuggest.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_url_from_symbol'>url_from_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span>
+  <span class='comment'># Escape the query string using CGI rather than URI because URI fails to
+</span>  <span class='comment'># encode ampersands.
+</span>  <span class='const'>URI</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://d.yimg.com/aq/autoc?query=</span><span class='embexpr_beg'>#{</span><span class='const'>CGI</span><span class='period'>.</span><span class='id identifier rubyid_escape'>escape</span><span class='lparen'>(</span><span class='id identifier rubyid_symbol'>symbol</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&amp;callback=</span><span class='embexpr_beg'>#{</span><span class='const'>CALLBACK</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
-</body>
-</html>
+</div>
 
+    <div id="footer">
+  Generated on Sun Feb  9 06:40:06 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>
