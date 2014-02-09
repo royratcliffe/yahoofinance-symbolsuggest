@@ -1,4 +1,4 @@
-require "yahoofinance-symbolsuggest/version"
+require 'yahoofinance-symbolsuggest/version'
 
 # Both net/http, uri and cgi belong to the Ruby standard library.
 require 'net/http'
@@ -21,7 +21,7 @@ module YahooFinance
     # and where “callback” specifies the JavaScript callback function. But
     # note, this callback function cannot have just any name for the Yahoo
     # service to accept the request. It must match this string.
-    Callback = "YAHOO.Finance.SymbolSuggest.ssCallback"
+    CALLBACK = 'YAHOO.Finance.SymbolSuggest.ssCallback'
     
     # Answers an URL given a ticker symbol or company name; Yahoo Finance
     # matches both simultaneously. Send an HTTP GET request to this URL and
@@ -31,7 +31,7 @@ module YahooFinance
     def self.url_from_symbol(symbol)
       # Escape the query string using CGI rather than URI because URI fails to
       # encode ampersands.
-      URI.parse("http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&callback=#{Callback}")
+      URI.parse("http://d.yimg.com/aq/autoc?query=#{CGI.escape(symbol)}&callback=#{CALLBACK}")
     end
     
     # Parses JSONP and extracts the encoded set of results. Answers a hash
@@ -46,10 +46,10 @@ module YahooFinance
       # callback function. The following padding parser utilises Ruby 1.9 String
       # methods. Is that a good thing? It makes the implementation dependent on
       # 1.9.
-      prefix = Callback + '('
+      prefix = CALLBACK + '('
       suffix = ')'
       if jsonp.start_with?(prefix) && jsonp.end_with?(suffix)
-        JSON.parse(jsonp[prefix.length, jsonp.length - prefix.length - suffix.length])["ResultSet"]
+        JSON.parse(jsonp[prefix.length, jsonp.length - prefix.length - suffix.length])['ResultSet']
       else
         nil
       end
@@ -59,7 +59,7 @@ module YahooFinance
     # results; in other words, discards the +Query+ key. The results argument
     # typically comes from the results_from_jsonp method.
     def self.suggestions_from_results(results)
-      results["Result"]
+      results['Result']
     end
     
     # Answers an array of symbol suggestions given some JSONP sent by the Yahoo
